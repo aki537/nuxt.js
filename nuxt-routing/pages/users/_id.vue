@@ -12,6 +12,10 @@ export default {
     return {
       message: '/users/_id.vueを表示中'
     }
+  },
+  validate({ params }) {
+    // 数値である場合はtrue 出ない場合はfalseを返す
+    return /^\d+$/.test(params.id)
   }
 }
 </script>
