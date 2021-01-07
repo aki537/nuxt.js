@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- このnuxtコンポーネントにindex.vueの内容が入る -->
     <Nuxt />
   </div>
 </template>
