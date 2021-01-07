@@ -1,0 +1,6 @@
+スクラッチで手動でファイルを作成するとnode_modulesがインストールされる
+ファイル数が多いのでgitignoreに追加しておく
+
+node_modules/
+
+.nuxt
