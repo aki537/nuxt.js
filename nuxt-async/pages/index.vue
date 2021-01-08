@@ -13,14 +13,18 @@
 
 <script>
 const axios = require('axios');
-let url = 'https://jsonplaceholder.typicode.com/users'
+let url = 'https://jsonplaceholder.typicode.com/usersee'
 
 export default {
-  asyncData({ params }) {
+  asyncData({ params, error }) {
     return axios.get(url)
       .then((res) => {
         return { users: res.data }
       })
+      .catch((e => {
+        // console.log(e.response.status)
+        error({ users: e.response.status, message: e.message })
+      }))
   }
 }
 </script>
