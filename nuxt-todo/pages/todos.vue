@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ todos }}
     <div class="form">
       <!-- v-on:submitでボタンが押された時にaddメソッドが呼ばれる
       .preventをつけることでAddボタンを押した時にページがリロードされないようにする -->
@@ -29,6 +30,12 @@ export default {
     add() {
       this.$store.dispatch('todos/add', this.name)
       this.name = ''
+    }
+  },
+  // 後でtodosの中身をかこうして取得したいのでcomputedでtodosを取得する
+  computed: {
+    todos() {
+      return this.$store.state.todos.todos
     }
   }
 }
