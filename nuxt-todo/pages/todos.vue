@@ -4,7 +4,11 @@
     <ul>
       <li v-for="todo in todos" :key="todo.id">
         <!-- {{ todo }} -->
-        {{ todo.done }} {{ todo.name}} {{ todo.created}}
+        <!-- {{ todo.done }}  -->
+        <input type="checkbox"
+        v-bind:checked="todo.done"
+        @change="toggle(todo)">
+        {{ todo.name}} {{ todo.created}}
         <button v-on:click="remove(todo.id)">X</button>
       </li>
     </ul>
@@ -42,6 +46,9 @@ export default {
     remove(id) {
       // このidはfirestoreのドキュメントidを取得している
       this.$store.dispatch('todos/remove', id)
+    },
+    toggle(todo) {
+      this.$store.dispatch('todos/toggle', todo)
     }
   },
   // 後でtodosの中身をかこうして取得したいのでcomputedでtodosを取得する
