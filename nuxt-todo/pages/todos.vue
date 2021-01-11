@@ -5,6 +5,7 @@
       <li v-for="todo in todos" :key="todo.id">
         <!-- {{ todo }} -->
         {{ todo.done }} {{ todo.name}} {{ todo.created}}
+        <button v-on:click="remove(todo.id)">X</button>
       </li>
     </ul>
     <div class="form">
@@ -36,6 +37,11 @@ export default {
     add() {
       this.$store.dispatch('todos/add', this.name)
       this.name = ''
+    },
+    // removeを呼び出しfirebaseに登録してるtodosを削除する
+    remove(id) {
+      // このidはfirestoreのドキュメントidを取得している
+      this.$store.dispatch('todos/remove', id)
     }
   },
   // 後でtodosの中身をかこうして取得したいのでcomputedでtodosを取得する
