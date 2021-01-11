@@ -2,7 +2,7 @@ import firebase from '~/plugins/firebase'
 import { firestoreAction } from 'vuexfire'
 
 const db = firebase.firestore()
-const todosRef =db.collection('todos')
+const todosRef = db.collection('todos')
 
 // todo一覧を管理するtodosを配列で定義する
 export const state = () => ({
@@ -16,7 +16,7 @@ export const actions = {
   }),
   // todosの追加
   add: firestoreAction((context, name) => {
-    if(name, trim()){
+    if(name.trim()){
       todosRef.add({
         name: name,
         done: false,
