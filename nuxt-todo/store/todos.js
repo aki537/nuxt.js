@@ -35,3 +35,10 @@ export const actions = {
     })
   })
 }
+
+export const getters = {
+  orderdTodos: state => {
+    // state.todosのcreatedの値をソートして返す
+    return _.sortBy(state.todos, 'created')
+  }
+}
